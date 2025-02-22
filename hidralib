@@ -1,0 +1,52 @@
+local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/StepBroFurious/Script/main/HydraHubUi.lua'))()
+local Window = UILib.new("Sworn ACS", game.Players.LocalPlayer.UserId, "Buyer")
+local Category1 = Window:Category("Principal", "http://www.roblox.com/asset/?id=8395621517")
+local SubButton1 = Category1:Button("Combate", "http://www.roblox.com/asset/?id=8395747586")
+local Section1 = SubButton1:Section("Seção", "Left")
+Section1:Button({
+    Title = "Explode todo mundo",
+    ButtonName = "Explodir todo mundo",
+    Description = "explode a porra toda",
+    }, function(value)
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Position,
+            [2] = workspace,
+            [4] = Enum.Material.DiamondPlate,
+            [5] = {
+            ["ExplosionRadius"] = 99e99,
+            ["ExplosionType"] = "72EXP",
+            ["ExplosiveAmmo"] = true,
+            ["TorsoDamage"] = {
+            [1] = 300,
+            [2] = 300
+            },
+            ["LimbDamage"] = {
+            [1] = 300,
+            [2] = 300
+            },
+            ["HeadDamage"] = {
+            [1] = 300,
+            [2] = 300
+            },
+            }
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("ACS_Engine"):WaitForChild("Events"):WaitForChild("HitEffect"):FireServer(unpack(args))
+end)
+
+Section1:Button({
+    Title = "Abre menu de construções",
+    ButtonName = "Abre menu de construções",
+    Description = "Abre menu de construções",
+}, function(value)
+local cFrame = CFrame.new(0,0,0)
+
+
+local Size = {
+ X = 1,
+ Y = 1,
+ Z = 1
+}
+
+game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Breach:InvokeServer(3,{Fortified={},Destroyable=workspace},CFrame.new(),CFrame.new(),{CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*cFrame,Size=Size})
+end)
+ 
