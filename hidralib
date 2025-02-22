@@ -38,15 +38,6 @@ Section1:Button({
     ButtonName = "Abre menu de construções",
     Description = "Abre menu de construções",
 }, function(value)
-local cFrame = CFrame.new(0,0,0)
-
-
-local Size = {
- X = 1,
- Y = 1,
- Z = 1
-}
-
-game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Breach:InvokeServer(3,{Fortified={},Destroyable=workspace},CFrame.new(),CFrame.new(),{CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*cFrame,Size=Size})
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/jacrai/stormfun/main/1.6'))())
 end)
  
