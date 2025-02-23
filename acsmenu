@@ -88,7 +88,7 @@ Section1:Button({
     end
     
     bomb(250, 2) --// change values if client crashes
-
+end)
 Section2:Button({
     Title = "Parvus Hub",
     ButtonName = "Parvus Hub",
@@ -101,11 +101,10 @@ Section2:Button({
 end)
 
 
-Section2:Button({
+Section:Button({
     Title = "ACS Hub V1",
     ButtonName = "ACS Hub V1",
     Description = "ACS Hub V1",
 }, function(value)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/StoneDev47/KLB-HUB---ACS/main/mainhub", true))()
 end)
-
